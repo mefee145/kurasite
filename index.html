@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Lig Kura Sistemi</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f4f4f4;
+            color: #333;
+            margin: 0;
+            padding: 20px;
+        }
+
+        h1, h2 {
+            color: #2c3e50;
+        }
+
+        form {
+            margin-bottom: 20px;
+        }
+
+        textarea {
+            width: 100%;
+            max-width: 500px;
+            padding: 10px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            font-size: 16px;
+        }
+
+        button {
+            padding: 10px 20px;
+            background-color: #3498db;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            font-size: 16px;
+            cursor: pointer;
+        }
+
+        button:hover {
+            background-color: #2980b9;
+        }
+
+        ul {
+            list-style-type: none;
+            padding-left: 0;
+        }
+
+        li {
+            background-color: white;
+            margin: 8px 0;
+            padding: 10px;
+            border-radius: 5px;
+            box-shadow: 0 0 5px rgba(0,0,0,0.1);
+        }
+    </style>
+</head>
+<body>
+    <h1>Takım Listesi</h1>
+    <form method="POST">
+        <textarea name="takimlar" rows="10" placeholder="Her satıra bir takım yazın"></textarea><br><br>
+        <button type="submit">Kura Çek</button>
+    </form>
+
+    {% if fikstur %}
+        <h2>Fikstür</h2>
+        <ul>
+            {% for evsahibi, deplasman in fikstur %}
+                <li><strong>{{ evsahibi }}</strong> vs <strong>{{ deplasman }}</strong></li>
+            {% endfor %}
+        </ul>
+    {% endif %}
+</body>
+</html>
